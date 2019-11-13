@@ -1,0 +1,35 @@
+CSC 362 Programming Assignments #4 
+Due Date: Friday, November 15
+
+
+These two assignments require that you implement two Intel assembly language programs
+embedded in C programs. If you are using Windows, you will have to use Visual Studio. If you
+are using a Mac, you will have to use Xcode. Otherwise, you will have to log in to the NKU 
+virtual lab to access a virtual Windows 10 computer running Visual Studio.
+
+
+
+Program 4:    An increasingly additive sequence is a list of integer numbers such that the next
+number in the sequence is greater than the sum of the previous numbers. For instance, 1, 2, 4, 9,
+21, 50 is increasingly additive because 2 > 1, 4 > 2 + 1, 9 > 4 + 2 + 1, 21 > 9 + 4 + 2 + 1 and 
+50 > 21 + 9 + 4 + 2 + 1. We use increasingly additive sequences for private key encryption. An
+increasingly additive prime number sequence is the same but each number must be a prime
+number as well. So for instance, 2, 5, 11, 19, 41 is such a sequence while 2, 5, 9, 19, 41 is not 
+(9 is not a prime) and 2, 5, 11, 13, 41 is not because 2 + 5 + 11 > 13. Write a program which, in
+C, declares any necessary variables and inputs two numbers (assume the first number will be less
+than the second) and generates the sequence of all numbers that form an increasingly additive
+prime sequence between them. All of the logic to determine the next number in the sequence
+must be done in assembly language. This includes the loop mechanism(s) and logic to determine
+if the next number if prime and fulfills the increasingly additive property. To test your program,
+the sequence of inputs 4 and 20 is 5, 7, 13 and the sequence of inputs 10 and 100 is 11, 13, 29,
+59. Your program should determine each number in the sequence and print it out before going on
+to the next number. Do not use arrays. In order to understand the logic, implement this program
+entirely in C before trying to convert it to assembly. Test your program on the above example
+inputs (4, 20 and 10, 100) and then run it on 3, 1000 and 300, 5000, submitting the results as
+your output. 
+
+
+
+For both programs, submit the source code and output. In both cases, the output can be added to
+your source code in comments at the bottom. Make sure your code is well-commented, as
+discussed in class.
