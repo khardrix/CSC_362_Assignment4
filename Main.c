@@ -5,15 +5,15 @@
 /* -------------------------------------------------- FUNCTION PROTOTYPES ------------------------------------------------- */
 // function used to check if the passed-in int parameter is a prime number and return 0 (false) if it is not and
 	// 1 (true) if it is a prime number.
-int isPrime(int);
+// int isPrime(int);
 
 // function used to determine if the current number is a valid part of an increasingly additive sequence and
 	// return 0 (false) if not and return 1 (true) if so
-int isAdditive(int, int);
+// int isAdditive(int, int);
 
 // function used to print all the valid prime numbers between the starting value and ending value that are both prime and
 	// part of an increasingly additive sequence
-void printValid(int, int, int);
+// void printValid(int, int, int);
 /* ----------------------------------------------- END OF FUNCTION PROTOTYPES --------------------------------------------- */
 
 
@@ -36,6 +36,9 @@ int main() {
 		// (used to test if this current number is greater than the sum of all previous numbers)
 	int current;
 
+	// int counter variable for looping
+	int i;
+
 	// int variable used to sum up all numbers prior to "current" 
 		// to make the rules of an increasingly additive sequence are followed
 	int sum = 0;
@@ -52,9 +55,43 @@ int main() {
 	scanf("%d", &endValue);
 
 
+
+
+	for (current = startValue; current <= endValue; current++) {
+		isPrimeValue = 1;
+		if (current <= 1) {
+			isPrimeValue = 0;
+		}
+		else if (current == 2) {
+			isPrimeValue = 1;
+		}
+		else if (current % 2 == 0) {
+			isPrimeValue = 0;
+		}
+		else {
+			for (i = 3; i < (current / 2); i++) {
+				if (current % i == 0) {
+					isPrimeValue = 0;
+				}
+			}
+		}
+
+		isGreater = 0;
+		if (sum < current) {
+			isGreater = 1;
+		}
+
+		if (isPrimeValue == 1 && isGreater) {
+			sum += current;
+			printf("%d, ", current);
+		}
+	}
+
+
+
 	// call the function to print all the valid prime numbers between the starting value and ending value that are both prime and
 		// part of an increasingly additive sequence
-	printValid(startValue, endValue, sum);
+	// printValid(startValue, endValue, sum);
 	
 
 
@@ -66,6 +103,7 @@ int main() {
 
 // function used to check if the passed-in int parameter is a prime number and return 0 (false) if it is not and
 	// 1 (true) if it is a prime number.
+/*
 int isPrime(int number) {
 	// if statement to check if the passed-in int parameter, number, is 1 or less. In which case, return 0 (false / not prime)
 	if (number <= 1) {
@@ -102,11 +140,12 @@ int isPrime(int number) {
 		return 1;
 	}
 }
-
+*/
 
 
 // function used to determine if the current number is a valid part of an increasingly additive sequence and
 	// return 0 (false) if not and return 1 (true) if so
+/*
 int isAdditive(int sum, int number) {
 	// if statement that checks if the current number is greater than the sum of all previous numbers in the sequence and
 		// return 1 (true) if so
@@ -119,10 +158,11 @@ int isAdditive(int sum, int number) {
 		return 0;
 	}
 }
-
+*/
 
 // function used to print all the valid prime numbers between the starting value and ending value that are both prime and
 	// part of an increasingly additive sequence
+/*
 void printValid(int current, int endValue, int sum) {
 	// for loop used to loop from the starting value up to and including the ending value
 	for (; current <= endValue; current++) {
@@ -140,7 +180,7 @@ void printValid(int current, int endValue, int sum) {
 		}
 	}
 }
-
+*/
 
 /*
 Output:
