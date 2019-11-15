@@ -6,6 +6,8 @@
 void main() {
 
 	int isPrimeValue;
+	int isGreater;
+	int sum = 20;
 	int result;
 	int t = 1;
 	int f = 0;
@@ -50,4 +52,14 @@ void main() {
 
 	printf("isPrimeValue = %d \n", isPrimeValue);
 
+	__asm {
+				mov isGreater, FALSE
+				mov edx, current
+				cmp sum, edx
+				jge xdone
+				mov isGreater, TRUE
+		xdone:  nop
+	}
+
+	printf("isGreater = %d \n", isGreater);
 }
