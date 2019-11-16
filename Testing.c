@@ -7,12 +7,12 @@ void main() {
 
 	int isPrimeValue;
 	int isGreater;
-	int sum = 20;
+	int sum = 0;
 	int result;
 	int t = 1;
 	int f = 0;
 	int i;
-	int current = 23;
+	int current = 2;
 	int n = (current / 2) - 3;
 	int zero = 0;
 	int one = 1;
