@@ -42,6 +42,17 @@ void main() {
 	// printf("n = %d \n", n);
 
 
+	__asm {
+					mov ecx, n
+					mov eax, i
+		toploop:	add i, 1
+	}
+	printf("i = %d \n", i);
+	__asm {
+					loop toploop
+	}
+
+
 	/*
 	// for (current = startValue; current <= endValue; current++) {...} <-- outer for loop
 	__asm {
