@@ -89,7 +89,7 @@ void main() {
 		topouter:			mov isPrimeValue, 1     // set the value of the int (boolean) variable, "isPrimeValue" to 1 (true) (isPrimeValue = 1)
 	}
 	printf("current = %d \n", current);
-	
+	// printf("sum = %d \n", sum);
 	__asm {
 							cmp current, 2          // compare the value of "current" to 2
 							jl xiftrue              // if(current < 2) jump to "xiftrue"
@@ -115,7 +115,10 @@ void main() {
 							sub eax, 3				// subtract 3 from the EAX register (currently the value of "current / 2") (current = (current / 2) - 3) 
 							mov ecx, eax			// move the value of the EAX register ((current / 2) - 3) into the ECX register to set the number of times to loop
 							mov i, 3				// move 3 into the int variable "i" ("i" is a kind of counter variable ... to be incremented by 2 each loop) (i = 3)
-		topinner:			mov edx, 0				// move 0 into the EDX register to prepare for division
+		topinner:			dec ecx
+							cmp ecx, 0
+							jle bottom
+							mov edx, 0				// move 0 into the EDX register to prepare for division
 							mov eax, current		// move the int variable "current" into the EAX register
 							div i					// divide the EAX register (int variable "current") by the current value of "i" (current / i)
 							cmp edx, 0				// compare the current value of the EDX register (remainder of (current / i)) to 0
