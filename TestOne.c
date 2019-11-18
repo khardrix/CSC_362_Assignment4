@@ -87,6 +87,10 @@ void main() {
 							mov current, eax        // move the starting value (from user input) from the EAX register to the int variable "current"
 							mov sum, 0
 		topouter:			mov isPrimeValue, 1     // set the value of the int (boolean) variable, "isPrimeValue" to 1 (true) (isPrimeValue = 1)
+	}
+	printf("current = %d \n", current);
+	
+	__asm {
 							cmp current, 2          // compare the value of "current" to 2
 							jl xiftrue              // if(current < 2) jump to "xiftrue"
 							jmp xelseif             // if(current >= 2) jump to "xelseif"
@@ -140,8 +144,8 @@ void main() {
 							add sum, edx
 							mov ecx, n				// move the value of the int variable "n" into the ECX register to control the number of loops	
 	}
-	printf("current = %d, \n", current);
-	printf("sum = %d \n", sum);
+	printf("\t\tcurrent = %d, \n", current);
+	printf("\t\tsum = %d \n", sum);
 	__asm{
 		outerbottom:		add current, 1			// add 1 to the current value of the int variable "current"
 							sub n, 1
@@ -150,7 +154,7 @@ void main() {
 							// dec ecx
 							cmp n, 0
 							// cmp ecx, 0
-							jg topouter
+							jge topouter
 	}
 
 	
