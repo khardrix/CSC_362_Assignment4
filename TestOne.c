@@ -38,35 +38,7 @@ void main() {
 	current;
 	i;
 
-
-	// printf("n = %d \n", n);
-
 	
-	/*
-	// print to the terminal asking the user to input the starting value
-	printf("Enter the starting number: ");
-	// store the starting value to the "startValue" int variable
-	scanf("%d", &startValue);
-
-	// print to the terminal asking the user to input the ending value
-	printf("Enter the ending value: ");
-	// store the ending value to the "endValue" int variable
-	scanf("%d", &endValue);
-
-
-	__asm {
-						mov eax, endValue
-						sub eax, startValue
-						mov n, eax
-						mov ecx, n
-						mov eax, startValue
-						mov current, eax
-		topouter:		add current, 1
-						loop topouter
-	}
-
-	printf("current = %d \n", current);
-	*/
 	// print to the terminal asking the user to input the starting value
 	printf("Enter the starting number: ");
 	// store the starting value to the "startValue" int variable
@@ -87,10 +59,6 @@ void main() {
 							mov current, eax        // move the starting value (from user input) from the EAX register to the int variable "current"
 							mov sum, 0
 		topouter:			mov isPrimeValue, 1     // set the value of the int (boolean) variable, "isPrimeValue" to 1 (true) (isPrimeValue = 1)
-	}
-	printf("current = %d \n", current);
-	// printf("sum = %d \n", sum);
-	__asm {
 							cmp current, 2          // compare the value of "current" to 2
 							jl xiftrue              // if(current < 2) jump to "xiftrue"
 							jmp xelseif             // if(current >= 2) jump to "xelseif"
@@ -115,8 +83,7 @@ void main() {
 							sub eax, 3				// subtract 3 from the EAX register (currently the value of "current / 2") (current = (current / 2) - 3) 
 							mov ecx, eax			// move the value of the EAX register ((current / 2) - 3) into the ECX register to set the number of times to loop
 							mov i, 3				// move 3 into the int variable "i" ("i" is a kind of counter variable ... to be incremented by 2 each loop) (i = 3)
-		topinner:			dec ecx
-							cmp ecx, 0
+		topinner:			cmp ecx, 0
 							jle bottom
 							mov edx, 0				// move 0 into the EDX register to prepare for division
 							mov eax, current		// move the int variable "current" into the EAX register
@@ -148,7 +115,6 @@ void main() {
 							mov ecx, n				// move the value of the int variable "n" into the ECX register to control the number of loops	
 	}
 	printf("\t\tcurrent = %d, \n", current);
-	printf("\t\tsum = %d \n", sum);
 	__asm{
 		outerbottom:		add current, 1			// add 1 to the current value of the int variable "current"
 							sub n, 1
