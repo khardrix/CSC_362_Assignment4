@@ -140,7 +140,8 @@ void main() {
 							add sum, edx
 							mov ecx, n				// move the value of the int variable "n" into the ECX register to control the number of loops	
 	}
-	printf("%d, ", current);
+	printf("current = %d, \n", current);
+	printf("sum = %d \n", sum);
 	__asm{
 		outerbottom:		add current, 1			// add 1 to the current value of the int variable "current"
 							sub n, 1
@@ -151,6 +152,9 @@ void main() {
 							// cmp ecx, 0
 							jg topouter
 	}
+
+	
+
 	/*
 	// if (isPrimeValue == 1 && isGreater == 1) {
 	//     sum += current;
