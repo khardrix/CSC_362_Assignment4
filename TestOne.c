@@ -26,7 +26,7 @@ void main() {
 
 	// int variable used to sum up all numbers prior to "current" 
 		// to make the rules of an increasingly additive sequence are followed
-	int sum = 0;
+	int sum;
 
 	// VARAIBLES ADDED DURING TESTING
 	int two = 2;
