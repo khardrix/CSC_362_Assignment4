@@ -85,6 +85,7 @@ void main() {
 							mov ecx, n              // move the calculated number of loops from the int variable "n" into the ECX register 
 							mov eax, startValue     // move the starting value (from user input) into the EAX register
 							mov current, eax        // move the starting value (from user input) from the EAX register to the int variable "current"
+							mov sum, 0
 		topouter:			mov isPrimeValue, 1     // set the value of the int (boolean) variable, "isPrimeValue" to 1 (true) (isPrimeValue = 1)
 							cmp current, 2          // compare the value of "current" to 2
 							jl xiftrue              // if(current < 2) jump to "xiftrue"
@@ -128,7 +129,7 @@ void main() {
 							jl xxiftrue				// if(sum < current) jump to "xxiftrue"
 							jmp outerbottom         // jump to the bottom of the outer for loop
 		xxiftrue:			mov isGreater, 1		// [sum < current] move 1 (true) into the int (boolean) variable "isGreater" (isGreater = 1)
-							jmp finaltest			// jump to final test on whether "current" gets printed by jumping to the label "finaltest"
+							// jmp finaltest			// jump to final test on whether "current" gets printed by jumping to the label "finaltest"
 		finaltest:			cmp isPrimeValue, 1		// compare the int (boolean) variable "isPrimeValue" to 1 (true) 
 							je finaltesttwo			// if(isPrimeValue == 1) jump to the second test on whether "current" gets printed (the label "finaltesttwo")
 							jmp outerbottom			// if(isPrimeValue != 1) jump to the bottom of the outer for loop (the label "outerbottom"
@@ -136,16 +137,19 @@ void main() {
 							je printnumber			// if(isGreater == 1) jump to print the current value of "current" to the terminal
 							jmp outerbottom			// if(isGreater != 1) jump to the bottom of the outer for loop (the label "outerbottom")
 		printnumber:		mov edx, current		// move the value of the int variable "current" into the EDX register to get ready for printing
-							mov ecx, n				// move the value of the int variable "n" into the ECX register to control the number of loops				
+							add sum, edx
+							mov ecx, n				// move the value of the int variable "n" into the ECX register to control the number of loops	
 	}
 	printf("%d, ", current);
 	__asm{
-		outerbottom:		mov eax, n				// move the current value of "n" into the EAX register
-							add n, 1				// add 1 to the current value of int variable "n" (n += 1) 
+		outerbottom:		add current, 1			// add 1 to the current value of the int variable "current"
+							sub n, 1
 							mov ecx, n		        // move the value of "current" into the ECX register to control the number of loops for the outer loop 
-							mov eax, current		// move the current value of the int variable "current" into the EAX register
-							add current, 1			// add 1 to the current value of the int variable "current"
-							loop topouter			// loop to the top of the outer for loop (labeled "topouter") 
+							// loop topouter		// loop to the top of the outer for loop (labeled "topouter") 
+							// dec ecx
+							cmp n, 0
+							// cmp ecx, 0
+							jg topouter
 	}
 	/*
 	// if (isPrimeValue == 1 && isGreater == 1) {
